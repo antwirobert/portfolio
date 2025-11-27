@@ -28,6 +28,7 @@ AgentMeet AI is a next-generation video calling platform where every meeting inc
 - Meetings can be created, scheduled, cancelled, or started later. Upcoming meetings stay in a pending state until you join. 
 - Create agents with custom names, personalities, tones, and behaviors.  
 - After a meeting ends, background jobs (via Ingest and AgentKit) automatically:
+  <br />
 . Fetch transcripts
 . Summarize content with AI
 . Generate structured insights
@@ -70,6 +71,7 @@ Lynq is a modern, full-stack social media platform built with Next.js, designed 
 - Follow and unfollow users
 - Intelligent random user suggestions to follow
 - Get immediate notifications when:
+  <br />
 . Someone follows you
 . Someone likes your post
 . Someone comments on your post
@@ -104,10 +106,11 @@ npm install
 🧩 Environment Variables
 
 Create a .env file:
+```bash
 VITE_APP_EMAILJS_SERVICE_ID=
 VITE_APP_EMAILJS_TEMPLATE_ID=
 VITE_APP_EMAILJS_PUBLIC_KEY=
-
+```
 ```bash
 npm run dev
 ```
@@ -127,5 +130,7 @@ LinkedIn: https://www.linkedin.com/in/antwirobert/
 
 ⭐️ Acknowledgements
 If this project inspires you, please leave a star on the repo! It helps more developers discover it.
+<br />
 Thanks for checking out my portfolio.
+<br />
 I’m continuously improving this project and adding new work — stay tuned!
