@@ -20,76 +20,67 @@ This portfolio is built with a strong focus on **clean UI**, **smooth animations
 
 ## 🖥️ Featured Projects
 
-### 🔹 **AgentMeet AI**  
+### 🔹 **AgentMeet AI**
 AgentMeet AI is a next-generation video calling platform where every meeting includes a real-time AI agent trained for a specific role.
 
 **Features:**
-- Start meetings with AI agents that interact live using Stream Video SDK and OpenAI Realtime API.  
-- Meetings can be created, scheduled, cancelled, or started later. Upcoming meetings stay in a pending state until you join. 
-- Create agents with custom names, personalities, tones, and behaviors.  
+- Start meetings with AI agents that interact live using Stream Video SDK and OpenAI Realtime API.
+- Meetings can be created, scheduled, cancelled, or started later. Upcoming meetings stay in a pending state until you join.
+- Create agents with custom names, personalities, tones, and behaviors.
 - After a meeting ends, background jobs (via Ingest and AgentKit) automatically:
   - Fetch transcripts
-  <br />
-   - Summarize content with AI
-  <br />
+  - Summarize content with AI
   - Generate structured insights
-  <br />
   - Save everything to the database
-  <br />
-  - Mark the meeting as Completed 
-  <br />
+  - Mark the meeting as **Completed**
+
 - Every completed meeting includes:
-✅ Summary
-<br />
-A clean AI-generated breakdown of discussion topics with timestamps.
-<br />
-💬 Transcript
-<br />
-A fully searchable transcript with keyword highlighting.
-<br />
-🎞️ Recording
-<br />
-A complete replay of the entire call.  
+
+  **✅ Summary**  
+  A clean AI-generated breakdown of discussion topics with timestamps.
+
+  **💬 Transcript**  
+  A fully searchable transcript with keyword highlighting.
+
+  **🎞️ Recording**  
+  A complete replay of the entire call.
 
 **Live Demo:** *[AgentMeet AI](https://agent-meet-ai.vercel.app/)*
 
 ---
 
-### 🔹 **TripControl**  
+### 🔹 **TripControl**
 TripControl is a modern travel agency platform featuring an AI-powered trip itinerary generator, a public booking website, and a robust admin dashboard.
 
 **Features:**
-- AI-powered trip itinerary generator: Personalized itineraries based on country, travel style, interests, group type, and budget.  
-- Trip management: Add, edit, or delete trips with detailed overviews. 
-- Smooth UI with location previews  
-- Interactive analytics: Charts and tables showing user activity, trip trends, and insights  
+- AI-powered trip itinerary generator: Personalized itineraries based on country, travel style, interests, group type, and budget.
+- Trip management: Add, edit, or delete trips with detailed overviews.
+- Smooth UI with location previews
+- Interactive analytics: Charts and tables showing user activity, trip trends, and insights
 
 **Live Demo:** *[TripControl](https://trip-control-ai.vercel.app/)*
 
 ---
 
-### 🔹 **Lynq**  
+### 🔹 **Lynq**
 Lynq is a modern, full-stack social media platform built with Next.js, designed to deliver a seamless, fast, and secure social experience. It supports real-time interactions, user-generated content, notifications, authentication, and profile management — all wrapped in a clean, responsive UI.
 
 **Features:**
-- Sign up / log in using Google OAuth or Email + Password  
+- Sign up / log in using Google OAuth or Email + Password
 - Create posts with image uploads using UploadThing
-- Like and comment on posts with instant UI updates  
+- Like and comment on posts with instant UI updates
 - Follow and unfollow users
 - Intelligent random user suggestions to follow
 - Get immediate notifications when:
-  <br />
   - Someone follows you
-  <br />
   - Someone likes your post
-  <br />
   - Someone comments on your post
-  <br />
-  - Comments notifications link directly to:
+  - Comment notifications link directly to:
     - The post
-    - The specific comment 
+    - The specific comment
 
 **Live Demo:** *[Lynq](https://lynq-social.vercel.app/)*
+
 
 ---
 
