@@ -29,25 +29,27 @@ AgentMeet AI is a next-generation video calling platform where every meeting inc
 - Create agents with custom names, personalities, tones, and behaviors.  
 - After a meeting ends, background jobs (via Ingest and AgentKit) automatically:
   <br />
-  Fetch transcripts
+  - Fetch transcripts
   <br />
-   Summarize content with AI
+   - Summarize content with AI
   <br />
-  Generate structured insights
+  - Generate structured insights
   <br />
-  Save everything to the database
+  - Save everything to the database
   <br />
-  Mark the meeting as Completed 
+  - Mark the meeting as Completed 
   <br />
 - Every completed meeting includes:
-<br />
 ✅ Summary
+<br />
 A clean AI-generated breakdown of discussion topics with timestamps.
 <br />
 -💬 Transcript
+<br />
 A fully searchable transcript with keyword highlighting.
 <br />
 -🎞️ Recording
+<br />
 A complete replay of the entire call.  
 
 **Live Demo:** *[AgentMeet AI](https://agent-meet-ai.vercel.app/)*
@@ -78,15 +80,15 @@ Lynq is a modern, full-stack social media platform built with Next.js, designed 
 - Intelligent random user suggestions to follow
 - Get immediate notifications when:
   <br />
-  Someone follows you
+  - Someone follows you
   <br />
-  Someone likes your post
+  - Someone likes your post
   <br />
-  Someone comments on your post
+  - Someone comments on your post
   <br />
-  Comments notifications link directly to:
-- The post
-- The specific comment 
+  - Comments notifications link directly to:
+    - The post
+    - The specific comment 
 
 **Live Demo:** *[Lynq](https://lynq-social.vercel.app/)*
 
