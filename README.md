@@ -131,6 +131,7 @@ LinkedIn: https://www.linkedin.com/in/antwirobert/
 
 ⭐️ Acknowledgements
 <br />
+
 If this project inspires you, please leave a star on the repo! It helps more developers discover it.
 <br />
 
