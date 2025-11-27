@@ -28,7 +28,6 @@ AgentMeet AI is a next-generation video calling platform where every meeting inc
 - Meetings can be created, scheduled, cancelled, or started later. Upcoming meetings stay in a pending state until you join. 
 - Create agents with custom names, personalities, tones, and behaviors.  
 - After a meeting ends, background jobs (via Ingest and AgentKit) automatically:
-  <br />
   - Fetch transcripts
   <br />
    - Summarize content with AI
@@ -44,11 +43,11 @@ AgentMeet AI is a next-generation video calling platform where every meeting inc
 <br />
 A clean AI-generated breakdown of discussion topics with timestamps.
 <br />
--💬 Transcript
+💬 Transcript
 <br />
 A fully searchable transcript with keyword highlighting.
 <br />
--🎞️ Recording
+🎞️ Recording
 <br />
 A complete replay of the entire call.  
 
