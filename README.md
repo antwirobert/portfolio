@@ -8,7 +8,7 @@ This portfolio is built with a strong focus on **clean UI**, **smooth animations
 
 ## 🚀 Tech Stack
 
-- **React** — App Router, Server Components, Optimized Rendering  
+- **React** — Hooks, Component Architecture, Performance Optimization  
 - **TypeScript** — Type-safe development  
 - **Tailwind CSS** — Utility-first styling with custom animations  
 - **Three.js & GSAP** — Smooth transitions & micro-interactions  
@@ -28,20 +28,19 @@ AgentMeet AI is a next-generation video calling platform where every meeting inc
 - Meetings can be created, scheduled, cancelled, or started later. Upcoming meetings stay in a pending state until you join. 
 - Create agents with custom names, personalities, tones, and behaviors.  
 - After a meeting ends, background jobs (via Ingest and AgentKit) automatically:
-  <br />
-. Fetch transcripts
-. Summarize content with AI
-. Generate structured insights
-. Save everything to the database
-. Mark the meeting as Completed 
+- Fetch transcripts
+- Summarize content with AI
+- Generate structured insights
+- Save everything to the database
+- Mark the meeting as Completed 
 - Every completed meeting includes:
-✅ Summary
+-✅ Summary
 A clean AI-generated breakdown of discussion topics with timestamps.
 
-💬 Transcript
+-💬 Transcript
 A fully searchable transcript with keyword highlighting.
 
-🎞️ Recording
+-🎞️ Recording
 A complete replay of the entire call.  
 
 **Live Demo:** *[AgentMeet AI](https://agent-meet-ai.vercel.app/)*
