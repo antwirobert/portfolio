@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, GithubIcon } from "lucide-react"
+import { ArrowUpRight, GithubIcon, } from "lucide-react"
 import { firstIconLists, secondIconLists, thirdIconLists } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
