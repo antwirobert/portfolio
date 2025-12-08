@@ -69,7 +69,7 @@ const AppShowcase = () => {
 
                 <div className="text-content">
                   <h2>
-                    AgentMeet AI - Real Time Video Meetings Powered by Autonomous AI Agents
+                    AgentMeet AI — Full SaaS Real-Time Video Meetings Powered by Autonomous AI Agents
                   </h2>
                   <p className="text-white-50 md:text-xl max-lg:line-clamp-4">
                     AgentMeet AI is a next-generation video calling platform where every meeting includes a real-time AI agent trained for a specific role. These aren’t summaries or offline scripts — each session is a live call with an AI that listens, responds, and participates just like a human.
