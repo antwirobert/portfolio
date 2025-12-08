@@ -21,7 +21,7 @@ This portfolio is built with a strong focus on **clean UI**, **smooth animations
 ## 🖥️ Featured Projects
 
 ### 🔹 **AgentMeet AI**
-AgentMeet AI is a next-generation video calling platform where every meeting includes a real-time AI agent trained for a specific role.
+AgentMeet AI is a **full SaaS** next-generation video calling platform where every meeting includes a real-time AI agent trained for a specific role.
 
 **Features:**
 - Start meetings with AI agents that interact live using Stream Video SDK and OpenAI Realtime API.
