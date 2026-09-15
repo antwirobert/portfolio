@@ -91,10 +91,11 @@ const abilities = [
 
 const expCards = [
   {
-    review: "Robert brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review:
+      "Robert brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
     imgPath: "/images/exp1.jpg",
     logoPath: "/images/logo1.png",
-    title: "Software Developer",
+    title: "Software Developer Intern",
     date: "August 2025 - November 2025",
     responsibilities: [
       "Bug fixing and Quality Assurance: Identified and resolved critical frontend issues, improving platform reliability",
@@ -103,7 +104,8 @@ const expCards = [
     ],
   },
   {
-    review: "Robert's work on our app brought a high level of quality and efficiency. He delivered solutions that enhanced our experience & met our product goals.",
+    review:
+      "Robert's work on our app brought a high level of quality and efficiency. He delivered solutions that enhanced our experience & met our product goals.",
     imgPath: "/images/exp2.svg",
     logoPath: "/images/exp2.svg",
     title: "Freelance Software Engineer",
@@ -152,25 +154,43 @@ const socialImgs = [
   {
     name: "insta",
     imgPath: "/images/git.svg",
-    href: "https://github.com/antwirobert"
+    href: "https://github.com/antwirobert",
   },
   {
     name: "x",
     imgPath: "/images/x.png",
-    href: "https://x.com/RobertAntwi3438"
+    href: "https://x.com/RobertAntwi3438",
   },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
-    href: "https://www.linkedin.com/in/antwirobert/"
+    href: "https://www.linkedin.com/in/antwirobert/",
   },
 ];
 
-
-const firstIconLists = ["/images/next.svg", "/images/re.svg", "/images/ts.svg", "/images/tail.svg", "/images/postgres.svg", "/images/drizzle.png"]
-const secondIconLists = ["/images/re.svg", "/images/ts.svg", "/images/tail.svg", "/images/appwrite.png", "/images/gemini.png"]
-const thirdIconLists = ["/images/next.svg", "/images/re.svg", "/images/ts.svg", "/images/tail.svg", "/images/postgres.svg", "/images/prisma.png"]
-  
+const firstIconLists = [
+  "/images/next.svg",
+  "/images/re.svg",
+  "/images/ts.svg",
+  "/images/tail.svg",
+  "/images/postgres.svg",
+  "/images/drizzle.png",
+];
+const secondIconLists = [
+  "/images/re.svg",
+  "/images/ts.svg",
+  "/images/tail.svg",
+  "/images/appwrite.png",
+  "/images/gemini.png",
+];
+const thirdIconLists = [
+  "/images/next.svg",
+  "/images/re.svg",
+  "/images/ts.svg",
+  "/images/tail.svg",
+  "/images/postgres.svg",
+  "/images/prisma.png",
+];
 
 export {
   words,
@@ -184,5 +204,5 @@ export {
   navLinks,
   firstIconLists,
   secondIconLists,
-  thirdIconLists
+  thirdIconLists,
 };
