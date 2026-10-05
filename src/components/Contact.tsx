@@ -38,7 +38,7 @@ export function Contact() {
               <div className="mt-10 flex justify-center">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="group inline-flex items-center gap-2.5 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-bg transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_24px_-4px_rgba(184,233,134,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                  className="group inline-flex items-center gap-2.5 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
                   <Mail className="h-4 w-4" />
                   {profile.email}

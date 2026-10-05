@@ -10,7 +10,7 @@ export const profile: Profile = {
   name: "Robert Antwi",
   title: "Software Engineer | Full-Stack Developer",
   positioning:
-    "I design, build, and ship production-grade full-stack products — from multi-tenant SaaS platforms to real-time AI applications.",
+    "I build full-stack products across the stack—from SaaS interfaces and backend APIs to PostgreSQL data models and real-time AI applications.",
   availability: "Open to software engineering opportunities",
   email: "robertantwi84@gmail.com",
   github: "https://github.com/antwirobert",
