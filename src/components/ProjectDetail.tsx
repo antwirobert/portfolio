@@ -51,7 +51,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 className={`group inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${
                   link.type === "github"
                     ? "border border-line text-secondary hover:border-strong hover:text-primary hover:bg-elevated/40"
-                    : "bg-accent text-bg hover:bg-accent-hover hover:shadow-[0_0_20px_-4px_rgba(184,233,134,0.3)]"
+                    : "bg-accent text-accent-foreground hover:bg-accent-dark"
                 }`}
               >
                 {link.type === "github" ? (
