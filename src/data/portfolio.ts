@@ -290,8 +290,12 @@ export const experience: ExperienceEntry[] = [
     org: "Kofa Technologies",
     period: "June 2025 – November 2025",
     location: "Ghana",
-    description:
-      "Developed and shipped full-stack features across Kofa’s web platforms using React, TypeScript, Node.js, and Express. Built and integrated REST APIs and database-backed functionality with PostgreSQL and Prisma. Contributed to the Fleet Dashboard (B2B logistics) and Network Platform (battery-swap station network). Implemented forms, tables, dashboards, filtering, pagination, authentication, and authorization. Collaborated with a 10–20 engineer team through Git workflows and code reviews.",
+    description: [
+      "Developed full-stack features across Kofa’s web platforms using React, TypeScript, Node.js, and Express.",
+      "Contributed to the Fleet Dashboard for B2B logistics and the Network Platform for the battery-swap station network.",
+      "Built and integrated REST APIs, PostgreSQL and Prisma data access, forms, tables, dashboards, filtering, pagination, authentication, and authorization.",
+      "Collaborated with engineers through Git workflows and code reviews.",
+    ],
     tags: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma"],
   },
   {
@@ -302,7 +306,7 @@ export const experience: ExperienceEntry[] = [
     period: "2024",
     location: "Ghana",
     description:
-      "Independently designed, developed, and deployed ~3 client applications spanning analytics dashboards, internal management tools, and web applications. Owned end-to-end development from requirements and architecture through frontend, backend, database integration, deployment, and maintenance. Used React, TypeScript, Tailwind, Zustand, TanStack Query, Node.js, Express, PostgreSQL, Prisma, Vercel, and Railway.",
+      "Designed and developed client applications spanning analytics dashboards, internal management tools, and web applications. Owned end-to-end delivery from requirements and architecture through frontend, backend, database integration, deployment, and maintenance.",
     tags: [
       "React",
       "TypeScript",

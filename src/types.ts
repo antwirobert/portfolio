@@ -2,8 +2,7 @@ export type TechCategory =
   | "Frontend"
   | "Backend"
   | "Databases"
-  | "Cloud / DevOps"
-  | "Tools"
+  | "Infrastructure & Tools"
   | "Languages";
 
 export interface TechItem {
@@ -29,6 +28,14 @@ export interface ProjectLink {
   type: "github" | "demo";
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
 export interface ProjectDetailSection {
   heading: string;
   body: string;
@@ -42,6 +49,10 @@ export interface Project {
   technologies: string[];
   contribution: string;
   links: ProjectLink[];
+  showcaseTechnologies: string[];
+  engineeringHighlights: string[];
+  showcaseScreenshot: ProjectScreenshot;
+  detailScreenshots: ProjectScreenshot[];
   featured?: boolean;
   detail: {
     sections: ProjectDetailSection[];
@@ -59,7 +70,7 @@ export interface ExperienceEntry {
   org: string;
   period: string;
   location?: string;
-  description: string;
+  description: string | string[];
   type: "experience" | "education" | "certification";
   tags?: string[];
 }
