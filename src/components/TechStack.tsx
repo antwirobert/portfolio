@@ -15,8 +15,8 @@ export function TechStack() {
               The tools I reach for.
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted">
-              Not a skill bar in sight. These are the technologies I use in my
-              projects and day-to-day work.
+              Technologies used across my project work and professional
+              experience.
             </p>
           </div>
         </Reveal>
