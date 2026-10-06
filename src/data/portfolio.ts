@@ -39,7 +39,7 @@ export const projects: Project[] = [
     id: "workloom",
     name: "Workloom",
     tagline:
-      "Full-stack project management SaaS with multi-user collaboration, task workflows, and real-time organization structure.",
+      "Multi-tenant project-management SaaS organized around organizations, workspaces, projects, and tasks.",
     category: "Full-Stack",
     technologies: [
       "React",
@@ -54,12 +54,40 @@ export const projects: Project[] = [
       "Docker",
     ],
     contribution:
-      "95% independently built — architecture, frontend, backend, and core workflows",
-    links: [
+      "Independently designed and developed the application architecture, frontend, backend, and core workflows.",
+    links: [],
+    showcaseTechnologies: [
+      "React / TypeScript",
+      "Node.js / Express",
+      "PostgreSQL / Prisma",
+      "Redis",
+      "TanStack Query / Zustand",
+    ],
+    engineeringHighlights: [
+      "Multi-tenant organization → workspace → project → task model",
+      "Node.js and Express REST APIs with PostgreSQL and Prisma",
+      "Authentication and authorization, Redis caching and sessions, and TanStack Query/Zustand state management",
+    ],
+    showcaseScreenshot: {
+      src: "/project-images/workloom-dashboard.png",
+      alt: "Workloom dashboard showing assigned tasks, priorities, due dates, and active workspaces.",
+      width: 1383,
+      height: 768,
+    },
+    detailScreenshots: [
       {
-        label: "GitHub",
-        url: "https://github.com/antwirobert",
-        type: "github",
+        src: "/project-images/workloom-kanban.png",
+        alt: "Workloom Kanban board showing task columns, project tasks, and workflow statuses.",
+        caption: "Kanban task board",
+        width: 1366,
+        height: 768,
+      },
+      {
+        src: "/project-images/workloom-task-drawer.png",
+        alt: "Workloom task detail drawer open over the intentionally blurred Kanban board, showing task properties, description, and attachments.",
+        caption: "Task detail drawer, with the board visible behind it",
+        width: 1366,
+        height: 480,
       },
     ],
     featured: true,
@@ -75,7 +103,7 @@ export const projects: Project[] = [
         },
         {
           heading: "What I Built",
-          body: "I designed and implemented the full stack: React + TypeScript frontend with TanStack Query and Zustand, Node.js + Express REST APIs, PostgreSQL + Prisma data layer, Redis for caching and sessions, authentication & authorization, and Docker-based development environments. Approximately 95% of the application was built independently.",
+          body: "I designed and implemented the full stack: React + TypeScript frontend with TanStack Query and Zustand, Node.js + Express REST APIs, PostgreSQL + Prisma data layer, Redis for caching and sessions, authentication & authorization, and Docker-based development environments.",
         },
         {
           heading: "Technical Architecture",
@@ -109,14 +137,14 @@ export const projects: Project[] = [
       learnings:
         "Owning nearly an entire SaaS taught me how architecture decisions compound. Clear domain modeling and deliberate state management paid off more than any individual library choice.",
       results:
-        "Shipped a production-oriented multi-tenant project management platform built ~95% independently.",
+        "Implemented a multi-tenant project management platform organized around an Organization → Workspace → Project → Task hierarchy.",
     },
   },
   {
     id: "agentmeet-ai",
     name: "AgentMeet AI",
     tagline:
-      "Real-time AI meeting SaaS where autonomous agents can listen, respond, and participate in live video conversations.",
+      "Real-time AI meeting product where agents participate in live video conversations and support post-meeting workflows.",
     category: "Full-Stack",
     technologies: [
       "Next.js 15",
@@ -135,11 +163,32 @@ export const projects: Project[] = [
     ],
     contribution:
       "Designed and developed end-to-end — architecture, real-time integrations, and AI agent workflows",
-    links: [
+    links: [],
+    showcaseTechnologies: [
+      "Next.js / TypeScript",
+      "tRPC",
+      "Stream Video / Chat",
+      "OpenAI Realtime / AgentKit",
+      "Better Auth / Polar billing",
+    ],
+    engineeringHighlights: [
+      "AI agents participate in live meetings through OpenAI Realtime and AgentKit",
+      "Stream Video and Chat provide meeting media and in-call messaging",
+      "tRPC APIs with Drizzle/PostgreSQL persistence, Better Auth, and Polar subscriptions",
+    ],
+    showcaseScreenshot: {
+      src: "/project-images/agentmeet-live-meeting.png",
+      alt: "AgentMeet live meeting with a real-time AI participant, another attendee, and call controls.",
+      width: 1560,
+      height: 768,
+    },
+    detailScreenshots: [
       {
-        label: "GitHub",
-        url: "https://github.com/antwirobert",
-        type: "github",
+        src: "/project-images/agentmeet-meetings.png",
+        alt: "AgentMeet meetings dashboard showing meeting records, statuses, filters, and durations.",
+        caption: "Meetings dashboard",
+        width: 1178,
+        height: 700,
       },
     ],
     featured: false,
@@ -197,12 +246,7 @@ export const projects: Project[] = [
 export const techStack: TechStackGroup[] = [
   {
     category: "Languages",
-    items: [
-      { name: "TypeScript", note: "Primary" },
-      { name: "JavaScript" },
-      { name: "SQL" },
-      { name: "HTML5 / CSS3" },
-    ],
+    items: [{ name: "TypeScript", note: "Primary" }],
   },
   {
     category: "Frontend",
@@ -212,22 +256,14 @@ export const techStack: TechStackGroup[] = [
       { name: "TanStack Query" },
       { name: "Zustand" },
       { name: "Tailwind CSS" },
-      { name: "shadcn/ui" },
-      { name: "React Hook Form + Zod" },
     ],
   },
   {
     category: "Backend",
-    items: [
-      { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "tRPC" },
-      { name: "REST APIs" },
-      { name: "JWT / Auth" },
-    ],
+    items: [{ name: "Node.js" }, { name: "Express.js" }, { name: "tRPC" }],
   },
   {
-    category: "Databases & Data",
+    category: "Databases",
     items: [
       { name: "PostgreSQL", note: "Primary" },
       { name: "Prisma" },
@@ -236,20 +272,11 @@ export const techStack: TechStackGroup[] = [
     ],
   },
   {
-    category: "DevOps & Deployment",
+    category: "Infrastructure & Tools",
     items: [
       { name: "Docker" },
-      { name: "GitHub Actions" },
       { name: "Vercel" },
       { name: "Railway" },
-      { name: "CI/CD" },
-    ],
-  },
-  {
-    category: "Testing & Tools",
-    items: [
-      { name: "Jest / Vitest" },
-      { name: "Supertest" },
       { name: "Git / GitHub" },
     ],
   },
