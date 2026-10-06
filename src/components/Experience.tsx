@@ -87,9 +87,23 @@ export function Experience() {
                           </div>
                         )}
 
-                        <p className="mt-3 text-sm leading-relaxed text-secondary">
-                          {entry.description}
-                        </p>
+                        {Array.isArray(entry.description) ? (
+                          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-secondary">
+                            {entry.description.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2.5"
+                              >
+                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="mt-3 text-sm leading-relaxed text-secondary">
+                            {entry.description}
+                          </p>
+                        )}
 
                         {entry.tags && entry.tags.length > 0 && (
                           <div className="mt-3.5 flex flex-wrap gap-1.5">
