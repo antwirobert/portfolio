@@ -19,7 +19,7 @@ export const profile: Profile = {
 
 export const about: AboutContent = {
   paragraphs: [
-    "I'm a software engineer who enjoys the parts of engineering most people don't see — the data models, the failure modes, the queries that get slow at 10x scale. I care about building things that work correctly under real conditions, not just in a demo.",
+    "I'm a software engineer who enjoys the parts of engineering most people don't see — the data models, the failure modes, and the queries that become expensive as systems grow. I care about building things that work correctly under real conditions, not just in a demo.",
     "My approach is straightforward: understand the problem before writing code, design systems that are simple to reason about, and write code that the next engineer (often me, six months later) can actually maintain.",
   ],
   learning: [
