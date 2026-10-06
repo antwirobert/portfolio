@@ -9,207 +9,105 @@ interface ProjectCardProps {
   onOpen: (project: Project) => void;
 }
 
-const categoryColors: Record<string, string> = {
-  "Backend Systems": "text-accent border-accent/30 bg-accent/5",
-  "Full-Stack": "text-accent border-accent/30 bg-accent/5",
-  "Developer Tools": "text-signal border-signal/30 bg-signal/5",
-  "Data / ML": "text-signal border-signal/30 bg-signal/5",
-  Infrastructure: "text-accent border-accent/30 bg-accent/5",
-};
-
 export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
-  const isFeatured = project.featured ?? false;
-  const categoryClass =
-    categoryColors[project.category] || "text-muted border-line bg-surface";
+  const imageFirst = index % 2 === 1;
+  const introColumn = imageFirst ? "xl:col-start-9" : "xl:col-start-1";
+  const imageColumn = imageFirst ? "xl:col-start-1" : "xl:col-start-5";
+  const detailsColumn = introColumn;
 
   return (
-    <Reveal delay={index * 80} as="article" className="">
-      <button
-        onClick={() => onOpen(project)}
-        className="group flex h-full w-full flex-col overflow-hidden rounded-xl border border-line bg-surface text-left transition-all duration-500 hover:border-strong hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)]"
-      >
-        <div className="relative overflow-hidden border-b border-line h-44 sm:h-48 lg:h-52">
-          <ProjectVisual project={project} />
-
-          <div className="absolute left-4 top-4 z-10">
-            <span
-              className={`inline-flex rounded-full border px-3 py-1 font-mono text-[10px] font-medium uppercase tracking-wider ${categoryClass}`}
-            >
-              {project.category}
-            </span>
-          </div>
-
-          <div className="absolute right-4 top-4 z-10 font-mono text-xs text-faint">
-            {String(index + 1).padStart(2, "0")}
-          </div>
-        </div>
-
-        <div className="flex flex-1 flex-col p-5 sm:p-6">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="text-xl font-medium tracking-tight text-primary transition-colors duration-300 group-hover:text-accent">
-              {project.name}
-            </h3>
-            <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-faint transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
-          </div>
-
-          <p className="mt-2 text-sm leading-relaxed text-secondary line-clamp-2">
+    <Reveal
+      as="article"
+      className="border-b border-line py-10 first:pt-0 lg:py-14"
+    >
+      <div className="grid grid-cols-1 gap-7 xl:grid-cols-12 xl:items-start xl:gap-x-8 xl:gap-y-0">
+        <div className={`order-1 xl:col-span-4 xl:row-start-1 ${introColumn}`}>
+          <p className="font-mono text-xs tracking-wide text-muted">
+            PROJECT {String(index + 1).padStart(2, "0")}
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+            {project.name}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-secondary">
             {project.tagline}
           </p>
+        </div>
 
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.technologies.slice(0, isFeatured ? 7 : 4).map((tech) => (
-              <span
-                key={tech}
-                className="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-muted"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > (isFeatured ? 7 : 4) && (
-              <span className="px-2 py-0.5 font-mono text-[11px] text-faint">
-                +{project.technologies.length - (isFeatured ? 7 : 4)}
-              </span>
-            )}
-          </div>
+        <figure
+          className={`order-2 min-w-0 xl:col-span-8 xl:row-span-2 xl:row-start-1 xl:self-center ${imageColumn}`}
+        >
+          <img
+            src={project.showcaseScreenshot.src}
+            alt={project.showcaseScreenshot.alt}
+            width={project.showcaseScreenshot.width}
+            height={project.showcaseScreenshot.height}
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "auto"}
+            decoding="async"
+            className="block h-auto w-full border border-line bg-surface"
+          />
+          <figcaption className="mt-2 text-xs text-muted">
+            {project.name} — product screenshot
+          </figcaption>
+        </figure>
 
-          <div className="mt-auto flex items-center justify-between gap-3 pt-5">
-            <span className="text-xs text-muted line-clamp-1">
-              {project.contribution}
-            </span>
-            <div className="flex items-center gap-1.5">
-              {project.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex h-7 w-7 items-center justify-center rounded border border-line text-faint transition-all duration-300 hover:border-strong hover:text-primary hover:bg-elevated/40"
-                  aria-label={`${link.label} for ${project.name}`}
+        <div
+          className={`order-3 mt-1 xl:col-span-4 xl:row-start-2 xl:mt-4 ${detailsColumn}`}
+        >
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
+              Engineering focus
+            </h4>
+            <ul className="mt-3 space-y-2">
+              {project.engineeringHighlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex gap-2.5 text-sm leading-relaxed text-secondary"
                 >
-                  {link.type === "github" ? (
-                    <GitHubIcon className="h-3.5 w-3.5" />
-                  ) : (
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  )}
-                </a>
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-accent"
+                  />
+                  {highlight}
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          <p className="mt-4 border-t border-line pt-4 text-sm leading-relaxed text-muted">
+            <span className="font-medium text-primary">Stack:</span>{" "}
+            {project.showcaseTechnologies.join(" · ")}
+          </p>
+
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <button
+              type="button"
+              onClick={() => onOpen(project)}
+              className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-accent underline decoration-accent/50 underline-offset-4 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              Read case study
+              <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+            </button>
+            {project.links.map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center gap-2 text-sm text-muted underline decoration-border-strong underline-offset-4 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                {link.type === "github" ? (
+                  <GitHubIcon className="h-4 w-4" />
+                ) : (
+                  <ExternalLink aria-hidden="true" className="h-4 w-4" />
+                )}
+                {link.label}
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            ))}
           </div>
         </div>
-      </button>
+      </div>
     </Reveal>
-  );
-}
-
-function ProjectVisual({ project }: { project: Project }) {
-  if (project.id === "workloom") {
-    return (
-      <div className="relative h-full w-full bg-surface">
-        <div className="absolute inset-0 opacity-30">
-          <div className="h-full w-full bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[20px_20px]" />
-        </div>
-
-        <div className="relative flex h-full flex-col items-center justify-center gap-2.5 px-4 sm:gap-3 sm:px-8">
-          <div className="rounded-md border border-accent/50 bg-accent/10 px-5 py-2 font-mono text-[11px] font-medium text-accent">
-            Organization
-          </div>
-
-          <div className="h-5 w-px bg-linear-to-b from-accent/40 to-border" />
-
-          <div className="flex items-center gap-3">
-            <div className="rounded-md border border-line bg-elevated/70 px-4 py-1.5 font-mono text-[10px] text-secondary">
-              Workspace
-            </div>
-            <div className="rounded-md border border-line bg-elevated/70 px-4 py-1.5 font-mono text-[10px] text-secondary">
-              Workspace
-            </div>
-          </div>
-
-          <div className="h-5 w-px bg-border" />
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="rounded border border-line bg-elevated/50 px-3 py-1 font-mono text-[10px] text-muted">
-              Project
-            </div>
-            <div className="rounded border border-line bg-elevated/50 px-3 py-1 font-mono text-[10px] text-muted">
-              Task
-            </div>
-            <div className="rounded border border-line bg-elevated/50 px-3 py-1 font-mono text-[10px] text-muted">
-              Task
-            </div>
-            <div className="rounded border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-[10px] text-accent">
-              Kanban
-            </div>
-          </div>
-
-          <div className="mt-1 font-mono text-[9px] tracking-wide text-faint">
-            multi-tenant · real-time collaboration
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (project.id === "agentmeet-ai") {
-    return (
-      <div className="relative h-full w-full bg-surface">
-        <div className="absolute inset-0 opacity-30">
-          <div className="h-full w-full bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[20px_20px]" />
-        </div>
-
-        <div className="relative flex h-full items-center justify-center gap-3 px-4 sm:gap-5 sm:px-6">
-          <div className="flex flex-col items-center gap-1.5">
-            <div className="rounded-lg border border-line bg-elevated/60 px-4 py-2.5 font-mono text-[11px] text-secondary">
-              Meeting
-            </div>
-            <span className="font-mono text-[9px] text-faint">
-              Stream Video
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-0.5">
-            <div className="h-px w-6 bg-border-strong sm:w-8" />
-            <span className="font-mono text-[9px] text-accent">live</span>
-            <div className="h-px w-6 bg-border-strong sm:w-8" />
-          </div>
-
-          <div className="flex flex-col items-center gap-1.5">
-            <div className="rounded-lg border border-accent/50 bg-accent/10 px-4 py-2.5 font-mono text-[11px] font-medium text-accent">
-              AI Agent
-            </div>
-            <span className="font-mono text-[9px] text-faint">
-              Realtime API
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-0.5">
-            <div className="h-px w-6 bg-border sm:w-8" />
-            <span className="font-mono text-[9px] text-faint">→</span>
-            <div className="h-px w-6 bg-border sm:w-8" />
-          </div>
-
-          <div className="flex flex-col items-center gap-1.5">
-            <div className="rounded-lg border border-line bg-elevated/60 px-4 py-2.5 font-mono text-[11px] text-secondary">
-              Summary
-            </div>
-            <span className="font-mono text-[9px] text-faint">
-              post-meeting
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="relative h-full w-full bg-surface">
-      <div className="absolute inset-0 opacity-30">
-        <div className="h-full w-full bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[20px_20px]" />
-      </div>
-      <div className="relative flex h-full items-center justify-center">
-        <div className="font-mono text-xs text-faint">System overview</div>
-      </div>
-    </div>
   );
 }
