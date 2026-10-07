@@ -196,35 +196,35 @@ export const projects: Project[] = [
       sections: [
         {
           heading: "Problem",
-          body: "Most AI meeting tools are post-processing only. I wanted agents that could actually participate in live conversations — for language tutoring, interview coaching, sales assistance, and custom personas — with real-time video, chat, and downstream AI workflows.",
+          body: "Many AI meeting experiences focus on what happens after a call: generating a transcript or summary. AgentMeet explores a different problem: enabling an AI agent to participate while the conversation is happening. That opens up use cases such as language tutoring, interview coaching, sales assistance, and custom personas, but requires coordinating the live meeting with the agent rather than only processing it afterward.",
         },
         {
           heading: "Solution",
-          body: "AgentMeet AI is a production-oriented SaaS built on Next.js 15 and React 19. It combines Stream Video/Chat for real-time meetings with the OpenAI Realtime API and AgentKit so AI agents can listen and respond live. Post-meeting, transcripts are processed and AI-generated summaries are produced automatically.",
+          body: "AgentMeet AI brings the meeting lifecycle into one application: participants meet over Stream Video and Chat, an AI agent joins the live conversation through OpenAI Realtime API and AgentKit, and session conversation data feeds transcript processing and post-meeting summaries. The application layer and stored meeting data connect the live interaction to what follows the call.",
         },
         {
           heading: "What I Built",
-          body: "Full application with App Router and Server Components, type-safe APIs via tRPC, Drizzle + PostgreSQL persistence, Better Auth for authentication, Polar for subscription billing, Stream for real-time media, and OpenAI Realtime + AgentKit for live agent participation and post-meeting intelligence.",
+          body: "I built the application with Next.js 15, React 19, the App Router, and Server Components. tRPC connects application features through typed APIs, while Drizzle and PostgreSQL persist application data. Better Auth handles authentication and Polar handles subscriptions. Stream provides video and chat; OpenAI Realtime API and AgentKit enable the agent's live participation, with meeting data also used for transcript processing and post-meeting summaries.",
         },
         {
           heading: "Technical Architecture",
-          body: "Next.js 15 App Router handles the web layer with Server Components. tRPC provides end-to-end type safety. Real-time media flows through Stream. AI agents connect via the OpenAI Realtime API. Background processing turns live meeting data into transcripts and summaries after the session ends.",
+          body: "The Next.js 15 application layer uses the App Router and Server Components, with tRPC providing type-safe application APIs and Drizzle/PostgreSQL for persistence. Stream carries the real-time video and chat experience, while OpenAI Realtime API and AgentKit support live agent interaction. The meeting session and conversation context need to stay coordinated across those interactions. After the meeting, background processing turns meeting data into transcripts and summaries, linking the live session with post-meeting workflows.",
         },
       ],
       keyDecisions: [
         {
           title: "tRPC over traditional REST",
-          body: "End-to-end type safety between client and server significantly reduced API contract bugs and sped up iteration on complex real-time features.",
+          body: "Using tRPC gives the application a typed client-to-server API contract, keeping the application layer consistent as meeting, account, and subscription features interact.",
         },
         {
           title: "OpenAI Realtime API + AgentKit for live participation",
-          body: "Post-meeting summarization alone was not enough. Real-time agent interaction required low-latency streaming and careful orchestration of conversation state.",
+          body: "Post-meeting AI processing could not meet the requirement for an agent to participate during the call. Live participation called for low-latency streaming interaction and deliberate orchestration of conversation and session state while the meeting was in progress.",
         },
       ],
       challenges: [
         {
           title: "Coordinating real-time video, chat, and AI agent state",
-          body: "Keeping the agent context coherent while media and chat streams run concurrently required careful handling of session state and timing.",
+          body: "Video, chat, and the AI agent each progress through a live session with their own timing and state. Keeping the conversation context coherent as participants speak, chat messages arrive, and the agent responds is more involved than a request-response flow: the application must relate those concurrent interactions to the same session and handle what happens when they do not advance together.",
         },
       ],
       features: [
@@ -236,9 +236,9 @@ export const projects: Project[] = [
         "Authentication and subscription billing (Better Auth + Polar)",
       ],
       learnings:
-        "Real-time AI systems force you to think about latency, state consistency, and failure modes much earlier than traditional request-response applications.",
+        "Building a real-time AI experience made latency, conversation-state consistency, and failure handling central design concerns: delays or mismatched session context can change how an agent participates in a live exchange, not just how quickly a page responds.",
       results:
-        "Shipped a production-oriented real-time AI meeting platform with live agent participation and post-meeting intelligence workflows.",
+        "Built a real-time meeting workflow combining live video, chat, AI agent participation, transcript processing, and post-meeting summaries.",
     },
   },
 ];
