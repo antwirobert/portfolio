@@ -31,8 +31,7 @@ export function Contact() {
 
               <p className="mx-auto mt-6 max-w-md text-pretty text-sm leading-relaxed text-secondary lg:text-base">
                 I'm {profile.name.split(" ")[0]} — if your team is building
-                something that requires real engineering, I'd like to hear about
-                it.
+                something technically interesting, I'd like to hear about it.
               </p>
 
               <div className="mt-10 flex justify-center">
