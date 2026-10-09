@@ -246,7 +246,11 @@ export const projects: Project[] = [
 export const techStack: TechStackGroup[] = [
   {
     category: "Languages",
-    items: [{ name: "TypeScript", note: "Primary" }],
+    items: [
+      { name: "TypeScript", note: "Primary" },
+      { name: "HTML" },
+      { name: "CSS" },
+    ],
   },
   {
     category: "Frontend",
@@ -263,7 +267,7 @@ export const techStack: TechStackGroup[] = [
     items: [{ name: "Node.js" }, { name: "Express.js" }, { name: "tRPC" }],
   },
   {
-    category: "Databases",
+    category: "Databases & ORM",
     items: [
       { name: "PostgreSQL", note: "Primary" },
       { name: "Prisma" },
@@ -277,8 +281,13 @@ export const techStack: TechStackGroup[] = [
       { name: "Docker" },
       { name: "Vercel" },
       { name: "Railway" },
+      { name: "Vite" },
       { name: "Git / GitHub" },
     ],
+  },
+  {
+    category: "Testing",
+    items: [{ name: "Vitest" }, { name: "Jest" }],
   },
 ];
 
