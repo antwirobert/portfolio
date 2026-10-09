@@ -10,7 +10,7 @@ export const profile: Profile = {
   name: "Robert Antwi",
   title: "Software Engineer | Full-Stack Developer",
   positioning:
-    "I build full-stack products across the stack—from SaaS interfaces and backend APIs to PostgreSQL data models and real-time AI applications.",
+    "I build full-stack products across the stack, from SaaS interfaces and backend APIs to PostgreSQL data models and real-time AI applications.",
   availability: "Open to software engineering opportunities",
   email: "robertantwi84@gmail.com",
   github: "https://github.com/antwirobert",
@@ -19,8 +19,8 @@ export const profile: Profile = {
 
 export const about: AboutContent = {
   paragraphs: [
-    "I'm a software engineer who enjoys the parts of engineering most people don't see — the data models, the failure modes, and the queries that become expensive as systems grow. I care about building things that work correctly under real conditions, not just in a demo.",
-    "My approach is straightforward: understand the problem before writing code, design systems that are simple to reason about, and write code that the next engineer (often me, six months later) can actually maintain.",
+    "I'm a software engineer who enjoys the parts of engineering most people do not see: the data models, the failure modes, and the queries that become expensive as systems grow. I care about building things that work correctly under real conditions, not just in a demo.",
+    "My approach is straightforward: understand the problem before writing code, design systems that are easy to reason about, and write software that the next engineer can maintain without much friction.",
   ],
   learning: [
     "Advanced system design for multi-tenant SaaS",
@@ -95,11 +95,11 @@ export const projects: Project[] = [
       sections: [
         {
           heading: "Problem",
-          body: "Existing project tools either feel bloated or force teams into rigid workflows. I wanted a clean, multi-tenant workspace that supports real collaboration — organizations, workspaces, projects, tasks, discussions, and file handling — without unnecessary complexity.",
+          body: "Existing project tools either feel bloated or force teams into rigid workflows. I wanted a clean, multi-tenant workspace that supports real collaboration across organizations, workspaces, projects, tasks, discussions, and file handling without unnecessary complexity.",
         },
         {
           heading: "Solution",
-          body: "Workloom is a production-oriented project management SaaS built around a clear hierarchy: Organization → Workspace → Project → Task. It supports assignments, priorities, deadlines, discussions, file handling, and both List and Kanban views.",
+          body: "Workloom is a project management SaaS organized around a clear hierarchy: Organization → Workspace → Project → Task. It supports assignments, priorities, deadlines, discussions, file handling, and both List and Kanban views.",
         },
         {
           heading: "What I Built",
@@ -162,7 +162,7 @@ export const projects: Project[] = [
       "Polar",
     ],
     contribution:
-      "Designed and developed end-to-end — architecture, real-time integrations, and AI agent workflows",
+      "Designed and developed the application architecture, real-time integrations, and AI agent workflows.",
     links: [],
     showcaseTechnologies: [
       "Next.js / TypeScript",
@@ -333,7 +333,7 @@ export const githubRepos = [
   {
     name: "workloom",
     description:
-      "Full-stack project management SaaS — multi-tenant workspaces, tasks, and collaboration",
+      "Full-stack project management SaaS with multi-tenant workspaces, tasks, and collaboration",
     language: "TypeScript",
     url: "https://github.com/antwirobert",
   },

@@ -54,7 +54,7 @@ export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
           className="rounded-sm text-sm font-semibold tracking-tight text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           {profile.name}
-          <span className="sr-only"> — home</span>
+          <span className="sr-only">Home</span>
         </a>
 
         <div className="hidden items-center gap-7 md:flex">

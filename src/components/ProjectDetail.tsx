@@ -41,28 +41,30 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             {project.tagline}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {project.links.map((link) => (
-              <a
-                key={link.label}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${
-                  link.type === "github"
-                    ? "border border-line text-secondary hover:border-strong hover:text-primary hover:bg-elevated/40"
-                    : "bg-accent text-accent-foreground hover:bg-accent-dark"
-                }`}
-              >
-                {link.type === "github" ? (
-                  <GitHubIcon className="h-4 w-4" />
-                ) : (
-                  <ExternalLink className="h-4 w-4" />
-                )}
-                {link.label}
-              </a>
-            ))}
-          </div>
+          {project.links.length > 0 && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {project.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${
+                    link.type === "github"
+                      ? "border border-line text-secondary hover:border-strong hover:text-primary hover:bg-elevated/40"
+                      : "bg-accent text-accent-foreground hover:bg-accent-dark"
+                  }`}
+                >
+                  {link.type === "github" ? (
+                    <GitHubIcon className="h-4 w-4" />
+                  ) : (
+                    <ExternalLink className="h-4 w-4" />
+                  )}
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
         </Reveal>
 
         <Reveal delay={80}>
@@ -95,6 +97,31 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             </div>
           </div>
         </Reveal>
+
+        {project.detailScreenshots.map((screenshot, index) => (
+          <Reveal key={screenshot.src} delay={120 + index * 50}>
+            <figure
+              className="mt-10"
+              style={{
+                maxWidth: `${Math.min(screenshot.width, 896)}px`,
+              }}
+            >
+              <img
+                src={screenshot.src}
+                alt={screenshot.alt}
+                width={screenshot.width}
+                height={screenshot.height}
+                loading="lazy"
+                decoding="async"
+                className="block h-auto w-full border border-line bg-surface"
+              />
+              <figcaption className="mt-2 text-xs text-muted">
+                {screenshot.caption ??
+                  `Additional product view of ${project.name}`}
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
 
         <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-8">
@@ -234,27 +261,29 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                   </div>
                 )}
 
-              <div>
-                <h3 className="section-label mb-4">Links</h3>
-                <div className="flex flex-col gap-2">
-                  {project.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between rounded-lg border border-line bg-surface px-4 py-3 text-sm transition-all duration-300 hover:border-strong hover:bg-elevated/30"
-                    >
-                      <span className="text-primary">{link.label}</span>
-                      {link.type === "github" ? (
-                        <GitHubIcon className="h-4 w-4 text-faint transition-colors group-hover:text-primary" />
-                      ) : (
-                        <ExternalLink className="h-4 w-4 text-faint transition-colors group-hover:text-primary" />
-                      )}
-                    </a>
-                  ))}
+              {project.links.length > 0 && (
+                <div>
+                  <h3 className="section-label mb-4">Links</h3>
+                  <div className="flex flex-col gap-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between rounded-lg border border-line bg-surface px-4 py-3 text-sm transition-all duration-300 hover:border-strong hover:bg-elevated/30"
+                      >
+                        <span className="text-primary">{link.label}</span>
+                        {link.type === "github" ? (
+                          <GitHubIcon className="h-4 w-4 text-faint transition-colors group-hover:text-primary" />
+                        ) : (
+                          <ExternalLink className="h-4 w-4 text-faint transition-colors group-hover:text-primary" />
+                        )}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
