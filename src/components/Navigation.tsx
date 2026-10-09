@@ -22,6 +22,7 @@ interface NavigationProps {
 
 export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     if (!open) return;
@@ -34,9 +35,50 @@ export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [open]);
 
+  useEffect(() => {
+    const determineActiveSection = () => {
+      const targets = ["home", ...navItems.map((item) => item.target)];
+      const viewportCenter = window.innerHeight * 0.35;
+      let active = "home";
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      targets.forEach((target) => {
+        const section = document.getElementById(target);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportCenter);
+
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          active = target;
+        }
+      });
+
+      setActiveSection(active);
+    };
+
+    determineActiveSection();
+    window.addEventListener("scroll", determineActiveSection, {
+      passive: true,
+    });
+    window.addEventListener("resize", determineActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", determineActiveSection);
+      window.removeEventListener("resize", determineActiveSection);
+    };
+  }, []);
+
   const navigateTo = (target: string) => {
     setOpen(false);
+    setActiveSection(target);
     onNavigate(target);
+  };
+
+  const handleLogoClick = () => {
+    setActiveSection("home");
+    onLogoClick();
   };
 
   return (
@@ -49,7 +91,7 @@ export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
           href="#home"
           onClick={(event) => {
             event.preventDefault();
-            onLogoClick();
+            handleLogoClick();
           }}
           className="rounded-sm text-sm font-semibold tracking-tight text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
@@ -58,19 +100,28 @@ export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
         </a>
 
         <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.target}
-              href={`#${item.target}`}
-              onClick={(event) => {
-                event.preventDefault();
-                navigateTo(item.target);
-              }}
-              className="rounded-sm py-2 text-sm text-muted transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.target;
+
+            return (
+              <a
+                key={item.target}
+                href={`#${item.target}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateTo(item.target);
+                }}
+                aria-current={isActive ? "page" : undefined}
+                className={`rounded-sm py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  isActive
+                    ? "font-medium text-primary underline decoration-accent/80 underline-offset-8"
+                    : "text-muted hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-2">
@@ -98,19 +149,28 @@ export function Navigation({ onLogoClick, onNavigate }: NavigationProps) {
           className="border-t border-line bg-base px-6 py-3 md:hidden"
         >
           <nav aria-label="Mobile navigation" className="mx-auto max-w-content">
-            {navItems.map((item) => (
-              <a
-                key={item.target}
-                href={`#${item.target}`}
-                onClick={(event) => {
-                  event.preventDefault();
-                  navigateTo(item.target);
-                }}
-                className="block border-b border-line py-3.5 text-sm text-secondary last:border-0 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.target;
+
+              return (
+                <a
+                  key={item.target}
+                  href={`#${item.target}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateTo(item.target);
+                  }}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`block border-b border-line py-3.5 text-sm last:border-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                    isActive
+                      ? "text-primary"
+                      : "text-secondary hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
             <a
               href={`mailto:${profile.email}`}
               onClick={() => setOpen(false)}
