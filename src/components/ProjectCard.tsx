@@ -47,7 +47,7 @@ export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
             className="block h-auto w-full border border-line bg-surface"
           />
           <figcaption className="mt-2 text-xs text-muted">
-            {project.name} — product screenshot
+            {project.name} product screenshot
           </figcaption>
         </figure>
 
